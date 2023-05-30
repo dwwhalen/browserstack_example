@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_driver/driver_extension.dart';
 
 void main() {
+    if (const bool.fromEnvironment('BUILD_FOR_APPIUM', defaultValue: false)) {
+    enableFlutterDriverExtension();
+  }
   runApp(const MyApp());
 }
 
