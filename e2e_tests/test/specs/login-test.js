@@ -14,14 +14,13 @@ describe('MyQHealth 2.0 Flutter App', function () {
 
         // this code was an attempt to restart the app with each test.  It works running locally, but there is 
         //an open issue with browserstack related to it, so leaving it here in case we need it.
-        console.log("in beforeEach...");
-        console.log("TERMINATE");
-        // await driver.terminateApp("io.qhapps.myqhealth_mobile_flutter_poc");
-        console.log("PAUSING AFTER TERMINATE");
+        console.log("TERMINATING");
+        await driver.terminateApp("com.example.browserstack_example");
+        console.log("PAUSING AFTER TERMINATING");
         await driver.pause(5000);
-        console.log("ACTIVATE");
-        // await driver.activateApp("io.qhapps.myqhealth_mobile_flutter_poc");
-        console.log("PAUSING AFTER ACTIVATE");
+        console.log("ACTIVATING");
+        await driver.activateApp("com.example.browserstack_example");
+        console.log("PAUSING AFTER ACTIVATING");
         await driver.pause(5000);
     });
 
@@ -29,7 +28,7 @@ describe('MyQHealth 2.0 Flutter App', function () {
         console.log("in afterEach...");
     });
 
-    it.only('my demo test 1', async () => {
+    it('my demo test 1', async () => {
 
         console.log("STARTING my demo test 1");
 
