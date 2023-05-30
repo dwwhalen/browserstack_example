@@ -2,7 +2,7 @@
 ```
 cd ./packages/myqhealth_mobile
 
-flutter build apk --debug
+flutter build apk --debug --dart-define BUILD_FOR_APPIUM=true
 ```
 
 ## Android upload the app to BrowserStack
