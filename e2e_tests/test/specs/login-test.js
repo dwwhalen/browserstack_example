@@ -1,6 +1,6 @@
 const find = import('appium-flutter-finder');
 
-describe('MyQHealth 2.0 Flutter App', function () {
+describe('Demo Test', function () {
 
     // this.retries(2);  //max number of retries it test fails (https://webdriver.io/docs/retry/
 

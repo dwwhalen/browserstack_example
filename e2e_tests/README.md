@@ -12,8 +12,18 @@ export DEMO_APK_PATH="/Users/dennis.whalen/flutter_projects/browserstack_example
 curl -u $BROWSERSTACK_USERNAME:$BROWSERSTACK_ACCESS_KEY -X POST "https://api-cloud.browserstack.com/app-automate/upload" -F "file=@$DEMO_APK_PATH" -F "custom_id=dennis_example"
 ```
 
-# Android - run the test
+# Android - run the test locally
+
+## Start Appium
 ```
 appium
-npm run wdio
+```
+## Run the test locally
+```
+npm run test
+```
+
+# Android - run the in Browserstack
+```
+npm run test-bs
 ```
