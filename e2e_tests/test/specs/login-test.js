@@ -1,4 +1,9 @@
-const find = import('appium-flutter-finder');
+const find = require('appium-flutter-finder');
+const assert = require('assert');
+
+const counterTextFinder = find.byValueKey('counter');
+const buttonFinder = find.byValueKey('increment');
+
 
 describe('Demo Test', function () {
 
@@ -17,11 +22,11 @@ describe('Demo Test', function () {
         console.log("TERMINATING");
         await driver.terminateApp("com.example.browserstack_example");
         console.log("PAUSING AFTER TERMINATING");
-        await driver.pause(5000);
+        await driver.pause(2000);
         console.log("ACTIVATING");
         await driver.activateApp("com.example.browserstack_example");
         console.log("PAUSING AFTER ACTIVATING");
-        await driver.pause(5000);
+        await driver.pause(2000);
     });
 
     afterEach(async function () {
@@ -32,7 +37,19 @@ describe('Demo Test', function () {
 
         console.log("STARTING my demo test 1");
 
-        await driver.pause(5000);
+        await driver.pause(2000);
+
+        console.log("test1 CHECKING HEALTH");
+        // await driver.switchContext("FLUTTER");
+        await driver.execute('flutter:checkHealth')
+        assert.strictEqual(await driver.getElementText(counterTextFinder), '0');
+        await driver.elementClick(buttonFinder);
+        await driver.elementClick(buttonFinder);
+        await driver.elementClick(buttonFinder);
+        await driver.elementClick(buttonFinder);
+        await driver.elementClick(buttonFinder);
+        assert.strictEqual(await driver.getElementText(counterTextFinder), '5');
+        await driver.pause(2000);
 
         console.log("ENDING my demo test 1");
 
@@ -42,7 +59,11 @@ describe('Demo Test', function () {
 
         console.log("STARTING my demo test 2");
 
-        await driver.pause(5000);
+        assert.strictEqual(await driver.getElementText(counterTextFinder), '0');
+        await driver.elementClick(buttonFinder);
+        await driver.elementClick(buttonFinder);
+        assert.strictEqual(await driver.getElementText(counterTextFinder), '2');
+        await driver.pause(2000);
 
         console.log("ENDING my demo test 2");
 
