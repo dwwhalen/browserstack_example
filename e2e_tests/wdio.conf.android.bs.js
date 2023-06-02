@@ -18,7 +18,7 @@ exports.config = {
   ],
 
   capabilities: [{
-    "appium:automationName": 'flutter',
+    // "appium:automationName": 'flutter',
     'appium:fullReset': true,
     'appium:noReset': false,
     'bstack:options': {
